@@ -2,10 +2,76 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Webpack App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Itprofit</title>
     </head>
     <body>
-    <form action="#"></form>
+    <div class="loading-screen">
+        <div class="loading-spinner"></div>
+    </div>
+    <div id='modal' class='modal'>
+        <div id='modal-content' class='modal__content'>
+            <div class='modal__header'>
+                <span class='modal__title'>Seobility</span>
+                <button id='close-modal' class='modal__close'>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </button>
+            </div>
+            <div class='modal__body'>Seobility – одно из лидирующих агентств интернет-маркетинга в Беларуси. Мы непрерывно движемся вперед и выстраиваем системы продаж в интернете для наших клиентов.</div>
+        </div>
+    </div>
+    <header class='header'>
+        <div class='container'>
+            <button id='show-modal' class='btn'>Открыть модальное окно</button>
+        </div>
+    </header>
+    <main>
+        <div class='container'>
+            <form
+              method='post'
+              id='form'
+              class='form'
+            >
+                <h2 class='form__title'>Форма обратной связи</h2>
+                <input
+                  id='username'
+                  name='username'
+                  class='input'
+                  type='text'
+                  placeholder='Введите имя*'
+                  data-validation-keys='required'
+                >
+                <input
+                  id='email'
+                  name='email'
+                  class='input'
+                  type='email'
+                  placeholder='Введите email*'
+                  data-validation-keys='required, email'
+                >
+                <input
+                  id='phone'
+                  name='phone'
+                  class='input'
+                  type='text'
+                  placeholder='Введите номер телефона*'
+                  data-validation-keys="required, phone"
+                >
+                <textarea
+                  id='message'
+                  name='message'
+                  class='textarea'
+                  placeholder='Сообщение*'
+                  data-validation-keys="required"
+                ></textarea>
+                <button class='form__btn' type='submit'>
+                    Отравить
+                    <span id='loader' class="loader"></span>
+                </button>
+                <p id='message-form'></p>
+            </form>
+        </div>
+    </main>
     </body>
     
 </html>

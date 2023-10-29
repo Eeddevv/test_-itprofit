@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV == 'production';
 
@@ -21,6 +22,9 @@ const config = {
         new HtmlWebpackPlugin({
             template: 'index.html',
         }),
+        new MiniCssExtractPlugin({
+            filename: 'styles.css',
+        }),
     ],
     module: {
         rules: [
@@ -29,8 +33,8 @@ const config = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.s[ac]ss$/i,
-                use: [stylesHandler, 'styles-loader', 'sass-loader'],
+                test: /\.s[ac]ss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
